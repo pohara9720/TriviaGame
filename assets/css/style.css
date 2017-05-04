@@ -1,0 +1,18 @@
+body {
+	background: url(https://images.pond5.com/loose-trip-01-1080-30p-footage-000544814_prevstill.jpeg);
+}
+.thumbnail{
+	margin-top: 100px;
+	text-align: center;
+	background: url(http://m.rgbimg.com/cache1nhWQQ/users/x/xy/xymonau/600/2dyWVaY.jpg);
+	background-size: 100%;
+	height:500px;
+}
+img{
+	height:50px;
+	width:200px;
+	margin-top: 75px;
+}
+.hide {
+	display: hide;
+}
