@@ -7,6 +7,7 @@ body {
 	background: url(http://m.rgbimg.com/cache1nhWQQ/users/x/xy/xymonau/600/2dyWVaY.jpg);
 	background-size: 100%;
 	height:500px;
+	font-size: 15px;
 }
 img{
 	height:50px;
@@ -15,4 +16,9 @@ img{
 }
 .hide {
 	display: hide;
+}
+h3{
+	font-size: 20px;
+	margin-left: 60px;
+	margin-right: 60px; 
 }
