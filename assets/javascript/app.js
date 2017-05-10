@@ -64,28 +64,28 @@ $(document).ready(function() {
                                     $("#boo").html("Correct!").removeClass("hide");
                                     images(imageArray[1]);
                                     setTimeout(
-                            function() {
-                            	$("#Question").html("Game Over")
-                             	$("#options").addClass("hide");
-                            }, 5000);
+                                        function() {
+                                            $("#Question").html("Game Over")
+                                            $("#options").addClass("hide");
+                                        }, 5000);
                                 });
                                 $("#option2").on("click", function() {
                                     $("#boo").html("WRONG!").removeClass("hide");
                                     images(imageArray[1]);
                                     setTimeout(
-                            function() {
-                            	$("#Question").html("Game Over")
-                             	$("#options").addClass("hide");
-                            }, 5000);
+                                        function() {
+                                            $("#Question").html("Game Over")
+                                            $("#options").addClass("hide");
+                                        }, 5000);
                                 });
                                 $("#option3").on("click", function() {
                                     $("#boo").html("WRONG!").removeClass("hide");
                                     images(imageArray[1]);
                                     setTimeout(
-                            function() {
-                            	$("#Question").html("Game Over")
-                             	$("#options").addClass("hide");
-                            }, 5000);
+                                        function() {
+                                            $("#Question").html("Game Over")
+                                            $("#options").addClass("hide");
+                                        }, 5000);
                                 });
                             }, 5000);
 
@@ -102,28 +102,28 @@ $(document).ready(function() {
                                     $("#boo").html("Correct!").removeClass("hide");
                                     images(imageArray[1]);
                                     setTimeout(
-                            function() {
-                            	$("#Question").html("Game Over")
-                             	$("#options").addClass("hide");
-                            }, 5000);
+                                        function() {
+                                            $("#Question").html("Game Over")
+                                            $("#options").addClass("hide");
+                                        }, 5000);
                                 });
                                 $("#option2").on("click", function() {
                                     $("#boo").html("WRONG!").removeClass("hide");
                                     images(imageArray[1]);
                                     setTimeout(
-                            function() {
-                            	$("#Question").html("Game Over")
-                             	$("#options").addClass("hide");
-                            }, 5000);
+                                        function() {
+                                            $("#Question").html("Game Over")
+                                            $("#options").addClass("hide");
+                                        }, 5000);
                                 });
                                 $("#option3").on("click", function() {
                                     $("#boo").html("WRONG!").removeClass("hide");
                                     images(imageArray[1]);
                                     setTimeout(
-                            function() {
-                            	$("#Question").html("Game Over")
-                             	$("#options").addClass("hide");
-                            }, 5000);
+                                        function() {
+                                            $("#Question").html("Game Over")
+                                            $("#options").addClass("hide");
+                                        }, 5000);
                                 });
                             }, 5000);
                     });
@@ -139,28 +139,28 @@ $(document).ready(function() {
                                     $("#boo").html("Correct!").removeClass("hide");
                                     images(imageArray[1]);
                                     setTimeout(
-                            function() {
-                            	$("#Question").html("Game Over")
-                             	$("#options").addClass("hide");
-                            }, 5000);
+                                        function() {
+                                            $("#Question").html("Game Over")
+                                            $("#options").addClass("hide");
+                                        }, 5000);
                                 });
                                 $("#option2").on("click", function() {
                                     $("#boo").html("WRONG!").removeClass("hide");
                                     images(imageArray[1]);
                                     setTimeout(
-                            function() {
-                            	$("#Question").html("Game Over")
-                             	$("#options").addClass("hide");
-                            }, 5000);
+                                        function() {
+                                            $("#Question").html("Game Over")
+                                            $("#options").addClass("hide");
+                                        }, 5000);
                                 });
                                 $("#option3").on("click", function() {
                                     $("#boo").html("WRONG!").removeClass("hide");
                                     images(imageArray[1]);
                                     setTimeout(
-                            function() {
-                            	$("#Question").html("Game Over")
-                             	$("#options").addClass("hide");
-                            }, 5000);
+                                        function() {
+                                            $("#Question").html("Game Over")
+                                            $("#options").addClass("hide");
+                                        }, 5000);
                                 });
                             }, 5000);
                     });
@@ -324,12 +324,11 @@ $(document).ready(function() {
 
     });
 
-					
+
     ///////////////////////////////////////Question 2//////////////////////////////////
 
 
 
 
 });
-
 
