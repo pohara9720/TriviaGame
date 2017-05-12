@@ -1,91 +1,333 @@
 $(document).ready(function() {
 
-var Questions=[
-{
-	question: "Why was the chainsaw first created?",
- 	answer:["Surgical Procedures","Cutting down trees faster","Hunting"]
-}, 
-{
-	question:"What other industry did Apple try their hand in other then technology?",
-	answer: ["Film","Food","Fashion"]
 
-},
-{
-	question:"How do male crabs seduce lady crabs",
-	answer: ["Waving their claws","Digging a hole big enough for the male and lady crab","Chopping up fish for the lady crab to eat"]
-}
-]
-console.log(Questions[0].answer);
+    //////////////////////////////////Variables//////////////////////////////////////
+    var questionsArray = [{
+        question: "Why was the chainsaw first created?",
+        answer: ["Surgical Procedures", "Cutting down trees faster", "Hunting"]
+    }, {
+        question: "What other industry did Apple try their hand in other then technology?",
+        answer: ["Film", "Food", "Fashion"]
 
+    }, {
+        question: "How do male crabs seduce lady crabs",
+        answer: ["Waving their claws", "Digging a hole big enough for the male and lady crab", "Chopping up fish for the lady crab to eat"]
+    }]
 
-
-
-$("#Start").on("click", function(){
-$("#Question").html("Why was the chainsaw first created?");
-$("#Start").addClass("hide");
-$("#options").removeClass("hide");
-$("#option1").html("Surgical Procedures").on("click", function() {
-    image1();
-    $("#Question").html("Correct! Chainsaws were originally created for surgical procedures");
-    $("#options").addClass("hide");
-    clearInterval(counter);
-    // setTimeout(nextQuestion1,1000*6);
-    // console.log(setTimeout);
-});
-$("#option2").html("Cutting down trees faster").on("click", function() {
-    image1();
-    $("#Question").html("WRONG! Chainsaws were originally created for surgical procedures");
-    $("#options").addClass("hide");
-    clearTimeout(counter);
-
-});
-$("#option3").html("Hunting").on("click", function() {
-    image1();
-    $("#Question").html("WRONG! Chainsaws were originally created for surgical procedures");
-    $("#options").addClass("hide");
-    clearTimeout(counter);
-});
-counter();
-
-});
-
-function image1() {
-    $("#image").attr("src", "assets/images/chainsaw.jpeg");
-};
-
-function nextQuestion1() {
-    $("#Question").html("What other industry did Apple try their hand in other then technology?");
-    $("#options").removeClass("hide");
-    $("#Start").addClass("hide");
-    $("#option1").html("Food");
-    $("#option2").html("Fashion");
-    $("#option3").html("Film");
-
-};
-
-
-});
-
-
-var counter = function(){
-
-(function(){
-  var countdown = 3;
-
-  setInterval(function() {
-    countdown--;
-    if (countdown >= 0) {
-      span = document.getElementById("counter");
-      span.innerHTML = countdown;
-    }
-    // Display 'counter' wherever you want to display it.
-    if (countdown === 0) {
-    	
-        clearInterval(counter);
+    var imageArray = [{
+            image: "assets/images/chainsaw.jpeg",
+            html: "The chainsaw was originally created for surigical procedures in 1830!"
+        }, {
+            image: "assets/images/crab.jpg",
+            html: "Crabs use their claws to wave at female crabs. Typically the Crab with the largest claw gets the most attention."
+        }, {
+            image: "assets/images/apple.jpeg",
+            html: "Apple tried releasing a clothing line in 1986 called 'The Apple Collection'. It failed miserably."
+        }]
+        //////////////////////////////////Jquery Functions//////////////////////////////////////
+    function newQuestion(question) {
+        $("#Question").html(question.question);
+        $("#option1").html(question.answer[0]);
+        $("#option2").html(question.answer[1]);
+        $("#option3").html(question.answer[2]);
+        $("#image").attr("src", "assets/images/hand.jpg");
     }
 
-  }, 1000);
+    function images(image) {
+        $("#Question").html(image.html);
+        $("#image").attr("src", image.image);
+        $("#options").addClass("hide");
+    }
+    ///////////////////////////////////////Question 1//////////////////////////////////
+    $("#Start").on("click", function() {
+        $("#Start").remove();
+        $("#options").removeClass("hide");
+        newQuestion(questionsArray[0]);
 
-})();
+        $("#option1").on("click", function() {
+            $("#boo").html("Correct!");
+            images(imageArray[0]);
+            setTimeout(
+                function() {
+                    newQuestion(questionsArray[1]);
+                    $("#boo").addClass("hide");
+                    $("#options").removeClass("hide");
+                    $("#option1").on("click", function() {
+                        $("#boo").html("Correct!").removeClass("hide");
+                        images(imageArray[2]);
+                        setTimeout(
+                            function() {
+                                newQuestion(questionsArray[2]);
+                                $("#boo").addClass("hide");
+                                $("#options").removeClass("hide");
+                                $("#option1").on("click", function() {
+                                    $("#boo").html("Correct!").removeClass("hide");
+                                    images(imageArray[1]);
+                                    setTimeout(
+                                        function() {
+                                            $("#Question").html("Game Over")
+                                            $("#options").addClass("hide");
+                                        }, 5000);
+                                });
+                                $("#option2").on("click", function() {
+                                    $("#boo").html("WRONG!").removeClass("hide");
+                                    images(imageArray[1]);
+                                    setTimeout(
+                                        function() {
+                                            $("#Question").html("Game Over")
+                                            $("#options").addClass("hide");
+                                        }, 5000);
+                                });
+                                $("#option3").on("click", function() {
+                                    $("#boo").html("WRONG!").removeClass("hide");
+                                    images(imageArray[1]);
+                                    setTimeout(
+                                        function() {
+                                            $("#Question").html("Game Over")
+                                            $("#options").addClass("hide");
+                                        }, 5000);
+                                });
+                            }, 5000);
 
-}
+                    });
+                    $("#option2").on("click", function() {
+                        $("#boo").html("WRONG!").removeClass("hide");
+                        images(imageArray[2]);
+                        setTimeout(
+                            function() {
+                                newQuestion(questionsArray[2]);
+                                $("#boo").addClass("hide");
+                                $("#options").removeClass("hide");
+                                $("#option1").on("click", function() {
+                                    $("#boo").html("Correct!").removeClass("hide");
+                                    images(imageArray[1]);
+                                    setTimeout(
+                                        function() {
+                                            $("#Question").html("Game Over")
+                                            $("#options").addClass("hide");
+                                        }, 5000);
+                                });
+                                $("#option2").on("click", function() {
+                                    $("#boo").html("WRONG!").removeClass("hide");
+                                    images(imageArray[1]);
+                                    setTimeout(
+                                        function() {
+                                            $("#Question").html("Game Over")
+                                            $("#options").addClass("hide");
+                                        }, 5000);
+                                });
+                                $("#option3").on("click", function() {
+                                    $("#boo").html("WRONG!").removeClass("hide");
+                                    images(imageArray[1]);
+                                    setTimeout(
+                                        function() {
+                                            $("#Question").html("Game Over")
+                                            $("#options").addClass("hide");
+                                        }, 5000);
+                                });
+                            }, 5000);
+                    });
+                    $("#option3").on("click", function() {
+                        $("#boo").html("Correct!").removeClass("hide");
+                        images(imageArray[2]);
+                        setTimeout(
+                            function() {
+                                newQuestion(questionsArray[2]);
+                                $("#boo").addClass("hide");
+                                $("#options").removeClass("hide");
+                                $("#option1").on("click", function() {
+                                    $("#boo").html("Correct!").removeClass("hide");
+                                    images(imageArray[1]);
+                                    setTimeout(
+                                        function() {
+                                            $("#Question").html("Game Over")
+                                            $("#options").addClass("hide");
+                                        }, 5000);
+                                });
+                                $("#option2").on("click", function() {
+                                    $("#boo").html("WRONG!").removeClass("hide");
+                                    images(imageArray[1]);
+                                    setTimeout(
+                                        function() {
+                                            $("#Question").html("Game Over")
+                                            $("#options").addClass("hide");
+                                        }, 5000);
+                                });
+                                $("#option3").on("click", function() {
+                                    $("#boo").html("WRONG!").removeClass("hide");
+                                    images(imageArray[1]);
+                                    setTimeout(
+                                        function() {
+                                            $("#Question").html("Game Over")
+                                            $("#options").addClass("hide");
+                                        }, 5000);
+                                });
+                            }, 5000);
+                    });
+                }, 5000);
+
+        });
+        $("#option2").on("click", function() {
+            $("#boo").html("WRONG!");
+            images(imageArray[0]);
+            setTimeout(
+                function() {
+                    newQuestion(questionsArray[1]);
+                    $("#boo").addClass("hide");
+                    $("#options").removeClass("hide");
+                    $("#option1").on("click", function() {
+                        $("#boo").html("Correct!").removeClass("hide");
+                        images(imageArray[2]);
+                        setTimeout(
+                            function() {
+                                newQuestion(questionsArray[2]);
+                                $("#boo").addClass("hide");
+                                $("#options").removeClass("hide");
+                                $("#option1").on("click", function() {
+                                    $("#boo").html("Correct!").removeClass("hide");
+                                    images(imageArray[1]);
+                                });
+                                $("#option2").on("click", function() {
+                                    $("#boo").html("WRONG!").removeClass("hide");
+                                    images(imageArray[1]);
+                                });
+                                $("#option3").on("click", function() {
+                                    $("#boo").html("WRONG!").removeClass("hide");
+                                    images(imageArray[1]);
+                                });
+                            }, 5000);
+                    });
+                    $("#option2").on("click", function() {
+                        $("#boo").html("WRONG!").removeClass("hide");
+                        images(imageArray[2]);
+                        setTimeout(
+                            function() {
+                                newQuestion(questionsArray[2]);
+                                $("#boo").addClass("hide");
+                                $("#options").removeClass("hide");
+                                $("#option1").on("click", function() {
+                                    $("#boo").html("Correct!").removeClass("hide");
+                                    images(imageArray[1]);
+                                });
+                                $("#option2").on("click", function() {
+                                    $("#boo").html("WRONG!").removeClass("hide");
+                                    images(imageArray[1]);
+                                });
+                                $("#option3").on("click", function() {
+                                    $("#boo").html("WRONG!").removeClass("hide");
+                                    images(imageArray[1]);
+                                });
+                            }, 5000);
+                    });
+                    $("#option3").on("click", function() {
+                        $("#boo").html("WRONG!").removeClass("hide");
+                        images(imageArray[2]);
+                        setTimeout(
+                            function() {
+                                newQuestion(questionsArray[2]);
+                                $("#boo").addClass("hide");
+                                $("#options").removeClass("hide");
+                                $("#option1").on("click", function() {
+                                    $("#boo").html("Correct!").removeClass("hide");
+                                    images(imageArray[1]);
+                                });
+                                $("#option2").on("click", function() {
+                                    $("#boo").html("WRONG!").removeClass("hide");
+                                    images(imageArray[1]);
+                                });
+                                $("#option3").on("click", function() {
+                                    $("#boo").html("WRONG!").removeClass("hide");
+                                    images(imageArray[1]);
+                                });
+                            }, 5000);
+                    });
+                }, 5000);
+
+        });
+        $("#option3").on("click", function() {
+            $("#boo").html("WRONG!");
+            images(imageArray[0]);
+            setTimeout(
+                function() {
+                    newQuestion(questionsArray[1]);
+                    $("#boo").addClass("hide");
+                    $("#options").removeClass("hide");
+                    $("#option1").on("click", function() {
+                        $("#boo").html("Correct!").removeClass("hide");
+                        images(imageArray[2]);
+                        setTimeout(
+                            function() {
+                                newQuestion(questionsArray[2]);
+                                $("#boo").addClass("hide");
+                                $("#options").removeClass("hide");
+                                $("#option1").on("click", function() {
+                                    $("#boo").html("Correct!").removeClass("hide");
+                                    images(imageArray[1]);
+                                });
+                                $("#option2").on("click", function() {
+                                    $("#boo").html("WRONG!").removeClass("hide");
+                                    images(imageArray[1]);
+                                });
+                                $("#option3").on("click", function() {
+                                    $("#boo").html("WRONG!").removeClass("hide");
+                                    images(imageArray[1]);
+                                });
+                            }, 5000);
+                    });
+                    $("#option1").on("click", function() {
+                        $("#boo").html("WRONG!").removeClass("hide");
+                        images(imageArray[2]);
+                        setTimeout(
+                            function() {
+                                newQuestion(questionsArray[2]);
+                                $("#boo").addClass("hide");
+                                $("#options").removeClass("hide");
+                                $("#option1").on("click", function() {
+                                    $("#boo").html("Correct!").removeClass("hide");
+                                    images(imageArray[1]);
+                                });
+                                $("#option2").on("click", function() {
+                                    $("#boo").html("WRONG!").removeClass("hide");
+                                    images(imageArray[1]);
+                                });
+                                $("#option3").on("click", function() {
+                                    $("#boo").html("WRONG!").removeClass("hide");
+                                    images(imageArray[1]);
+                                });
+                            }, 5000);
+                    });
+                    $("#option1").on("click", function() {
+                        $("#boo").html("WRONG!").removeClass("hide");
+                        images(imageArray[2]);
+                        setTimeout(
+                            function() {
+                                newQuestion(questionsArray[2]);
+                                $("#boo").addClass("hide");
+                                $("#options").removeClass("hide");
+                                $("#option1").on("click", function() {
+                                    $("#boo").html("Correct!").removeClass("hide");
+                                    images(imageArray[1]);
+                                });
+                                $("#option2").on("click", function() {
+                                    $("#boo").html("WRONG!").removeClass("hide");
+                                    images(imageArray[1]);
+                                });
+                                $("#option3").on("click", function() {
+                                    $("#boo").html("WRONG!").removeClass("hide");
+                                    images(imageArray[1]);
+                                });
+                            }, 5000);
+                    });
+                }, 5000);
+
+        });
+
+    });
+
+
+    ///////////////////////////////////////Question 2//////////////////////////////////
+
+
+
+
+});
